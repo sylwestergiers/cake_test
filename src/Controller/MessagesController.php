@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Mailer\Mailer;
+
 /**
  * Messages Controller
  *
@@ -50,6 +52,11 @@ class MessagesController extends AppController
         if ($this->request->is('post')) {
             $message = $this->Messages->patchEntity($message, $this->request->getData());
             if ($this->Messages->save($message)) {
+                $mailer = new Mailer('default');
+                $mailer->setFrom(['me@example.com' => 'Cake Test'])
+                    ->setTo('you@example.com')
+                    ->setSubject('About')
+                    ->deliver('My message');
                 $this->Flash->success(__('The message has been saved.'));
 
                 return $this->redirect(['action' => 'index']);

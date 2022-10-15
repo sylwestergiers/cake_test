@@ -9,7 +9,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
-    - mysqldata:/var/lib/mysql
+      - mysqldata:/var/lib/mysql
   phpmyadmin:
     container_name: cake_phpmyadmin
     image: phpmyadmin/phpmyadmin
@@ -29,5 +29,5 @@ services:
     volumes:
       - maildir:/maildir
 volumes:
-  maildir:
   mysqldata:
+  maildir:
