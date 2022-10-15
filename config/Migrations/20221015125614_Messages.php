@@ -14,7 +14,7 @@ class Messages extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('products');
+        $table = $this->table('messages');
         $table->addColumn('name', 'string', [
             'default' => '',
             'limit' => 255,

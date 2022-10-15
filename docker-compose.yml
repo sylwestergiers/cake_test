@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  mysql:
+    container_name: cake_mysql
+    image: mysql:5.6
+    ports:
+      - ${MYSQL_PORT}:3306
+    environment:
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+    - mysqldata:/var/lib/mysql
+  phpmyadmin:
+    container_name: cake_phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+    ports:
+      - ${PHPMYADMIN_PORT}:80
+    restart: always
+  mailhog:
+    container_name: cake_mailhog
+    image: mailhog/mailhog:v1.0.1
+    ports:
+      - ${MAILHOG_SMTP_PORT}:1025
+      - ${MAILHOG_WEB_PORT}:8025
+    volumes:
+      - maildir:/maildir
+volumes:
+  maildir:
+  mysqldata:
