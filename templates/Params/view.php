@@ -23,8 +23,8 @@
                     <td><?= h($param->param_key) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('ValueStr') ?></th>
-                    <td><?= h($param->valueStr) ?></td>
+                    <th><?= __('value_str') ?></th>
+                    <td><?= h($param->value_str) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Id') ?></th>

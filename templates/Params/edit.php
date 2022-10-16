@@ -23,7 +23,7 @@
                 <legend><?= __('Edit Param') ?></legend>
                 <?php
                     echo $this->Form->control('param_key');
-                    echo $this->Form->control('valueStr');
+                    echo $this->Form->control('value_str');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

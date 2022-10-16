@@ -20,7 +20,7 @@ class Params extends AbstractMigration
             'limit' => 255,
             'null' => false,
         ]);
-        $table->addColumn('valueStr', 'string', [
+        $table->addColumn('value_str', 'string', [
             'default' => '',
             'limit' => 255,
             'null' => false,

@@ -13,7 +13,7 @@
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('param_key') ?></th>
-                    <th><?= $this->Paginator->sort('valueStr') ?></th>
+                    <th><?= $this->Paginator->sort('value_str') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
@@ -24,7 +24,7 @@
                 <tr>
                     <td><?= $this->Number->format($param->id) ?></td>
                     <td><?= h($param->param_key) ?></td>
-                    <td><?= h($param->valueStr) ?></td>
+                    <td><?= h($param->value_str) ?></td>
                     <td><?= h($param->created) ?></td>
                     <td><?= h($param->modified) ?></td>
                     <td class="actions">
