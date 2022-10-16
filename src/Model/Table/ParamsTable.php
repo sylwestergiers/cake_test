@@ -57,7 +57,10 @@ class ParamsTable extends Table
         $validator
             ->scalar('param_key')
             ->maxLength('param_key', 255)
-            ->notEmptyString('param_key');
+            ->notEmptyString('param_key')
+            ->add('param_key', 'unique', [
+                'rule' => 'validateUnique', 'provider' => 'table',
+                'message' => "Param Key must be unique"]);
 
         $validator
             ->scalar('valueStr')
@@ -65,5 +68,13 @@ class ParamsTable extends Table
             ->notEmptyString('valueStr');
 
         return $validator;
+    }
+
+    /**
+     * Return value of param by key
+     */
+    public function getParamByKey($key) {
+        $param = $this->find()->where(['param_key' => $key])->first();
+        return !empty($param['valueStr'])? $param['valueStr'] : '';
     }
 }
