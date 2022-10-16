@@ -31,3 +31,10 @@ To have working mailhog please add to config:
   'className' => 'Smtp',
   'tls' => false,
 ```
+
+In default database config, you need to add
+```php
+  'className' => 'Cake\Database\Connection',
+  'driver' => 'Cake\Database\Driver\Mysql',
+```
+In case of problem with database connection, please try to replace 'localhost' with '127.0.0.1'
