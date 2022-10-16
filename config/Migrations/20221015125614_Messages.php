@@ -39,8 +39,8 @@ class Messages extends AbstractMigration
             'null' => false,
         ]);
         $table->addColumn('agr_2', 'text', [
-            'default' => '',
-            'null' => false,
+            'default' => null,
+            'null' => true,
         ]);
         $table->addColumn('created', 'datetime', [
             'default' => null,

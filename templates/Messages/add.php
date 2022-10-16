@@ -21,8 +21,18 @@
                     echo $this->Form->control('subject');
                     echo $this->Form->control('email');
                     echo $this->Form->control('body');
-                    echo $this->Form->control('agr_1');
-                    echo $this->Form->control('agr_2');
+                    echo $this->Form->control('agr_1', [
+                        'type' => "checkbox",
+                        'label' => $agr_1,
+                        'value' => $agr_1,
+                        'hiddenField' => false
+                    ]);
+                    echo $this->Form->control('agr_2', [
+                        'type' => "checkbox",
+                        'label' => $agr_2,
+                        'value' => $agr_2,
+                        'hiddenField' => false
+                    ]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

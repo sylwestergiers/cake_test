@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Mailer\Mailer;
+use Cake\ORM\TableRegistry;
 
 /**
  * Messages Controller
@@ -64,6 +65,8 @@ class MessagesController extends AppController
             $this->Flash->error(__('The message could not be saved. Please, try again.'));
         }
         $this->set(compact('message'));
+        $this->set('agr_1', TableRegistry::get('Params')->getParamByKey('agr_1'));
+        $this->set('agr_2', TableRegistry::get('Params')->getParamByKey('agr_2'));
     }
 
     /**
@@ -88,6 +91,8 @@ class MessagesController extends AppController
             $this->Flash->error(__('The message could not be saved. Please, try again.'));
         }
         $this->set(compact('message'));
+        $this->set('agr_1', TableRegistry::get('Params')->getParamByKey('agr_1'));
+        $this->set('agr_2', TableRegistry::get('Params')->getParamByKey('agr_2'));
     }
 
     /**

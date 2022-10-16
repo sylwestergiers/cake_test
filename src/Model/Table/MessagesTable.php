@@ -80,8 +80,7 @@ class MessagesTable extends Table
 
         $validator
             ->scalar('agr_2')
-            ->requirePresence('agr_2', 'create')
-            ->notEmptyString('agr_2');
+            ->allowEmptyString('agr_2');
 
         return $validator;
     }
