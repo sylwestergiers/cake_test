@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use Cake\Mailer\Mailer;
 use Cake\ORM\TableRegistry;
+use Cake\Mailer\MailerAwareTrait;
 
 /**
  * Messages Controller
@@ -14,6 +15,8 @@ use Cake\ORM\TableRegistry;
  */
 class MessagesController extends AppController
 {
+    use MailerAwareTrait;
+
     /**
      * Index method
      *
@@ -53,11 +56,8 @@ class MessagesController extends AppController
         if ($this->request->is('post')) {
             $message = $this->Messages->patchEntity($message, $this->request->getData());
             if ($this->Messages->save($message)) {
-                $mailer = new Mailer('default');
-                $mailer->setFrom(['me@example.com' => 'Cake Test'])
-                    ->setTo('you@example.com')
-                    ->setSubject('About')
-                    ->deliver('My message');
+                $this->getMailer('Message')->send('sendMessage', [$message]);
+
                 $this->Flash->success(__('The message has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
